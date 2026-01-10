@@ -270,7 +270,7 @@ function drawStaticElements() {
   //==========================
   // Draw dino image
   const base_image = new Image();
-  base_image.src = '../sprites/dino1.png';
+  base_image.src = './sprites/dino1.png';
   base_image.onload = function () {
     ctx.imageSmoothingEnabled = false;
     ctx.mozImageSmoothingEnabled = false;
