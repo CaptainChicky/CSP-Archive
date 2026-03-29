@@ -1,7 +1,15 @@
 <html dir="ltr">
 
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style>
+		/* shifts box to into the walls of the page lol might wanna change later */
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
 		body {
 			display: flex;
 			flex-direction: column;
@@ -9,20 +17,19 @@
 			justify-content: center;
 		}
 
-		._1palG {
+		.pulse-container {
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			width: 140px;
 			height: 140px;
 		}
 
-		.Ts1RR,
-		._1palG {
+		.pulse-circle {
+			position: relative;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-		}
-
-		.Ts1RR {
-			position: relative;
 			width: 70px;
 			height: 70px;
 			border-radius: 50%;
@@ -31,13 +38,12 @@
 			user-select: none;
 		}
 
-		.Ts1RR:after,
-		.Ts1RR:before {
+		.pulse-circle::before,
+		.pulse-circle::after {
 			content: "";
 			position: absolute;
 			top: 0;
 			left: 0;
-			box-sizing: border-box;
 			width: 100%;
 			height: 100%;
 			border: 1px solid #1da8f2;
@@ -45,17 +51,17 @@
 			border-radius: 50%;
 		}
 
-		.Ts1RR:before {
-			animation: _1x-M7 1.2s ease-out 0.2s infinite;
+		.pulse-circle::before {
+			animation: pulse-ring-inner 1.2s ease-out 0.2s infinite;
 		}
 
-		.Ts1RR:after {
-			animation: _16EFb 1.2s ease-out infinite;
+		.pulse-circle::after {
+			animation: pulse-ring-outer 1.2s ease-out infinite;
 		}
 
-		._1XL1C {
+		.circle-image {
 			z-index: 1;
-			/* 
+			/*
                 IMPORTANT! Border radius determines how much of the image inside the blue circles
                is cut off. I set a low border radius because the moth is cute. A higher border
                radius would mean that more of the moth is cut off from a cirular cutoff that
@@ -66,7 +72,7 @@
 			transition: opacity 0.25s ease-in;
 		}
 
-		@keyframes _1x-M7 {
+		@keyframes pulse-ring-inner {
 			0% {
 				opacity: 0;
 				transform: scale(0.3);
@@ -76,13 +82,13 @@
 				opacity: 1;
 			}
 
-			to {
+			100% {
 				opacity: 0;
 				transform: scale(1.5);
 			}
 		}
 
-		@keyframes _16EFb {
+		@keyframes pulse-ring-outer {
 			0% {
 				opacity: 0;
 				transform: scale(0.3);
@@ -92,26 +98,18 @@
 				opacity: 1;
 			}
 
-			to {
+			100% {
 				opacity: 0;
 				transform: scale(2);
 			}
 		}
-
-		/* shifts box to into the walls of the page lol might wanna change later */
-		* {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-		}
 	</style>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body class="notranslate">
-	<div class="_1palG">
-		<div class="Ts1RR">
-			<img style="width:90%;height:90%;" src="./media/MothBabyJuniper.png" class="_1XL1C _10d_h">
+	<div class="pulse-container">
+		<div class="pulse-circle">
+			<img style="width: 90%; height: 90%;" src="./media/MothBabyJuniper.png" class="circle-image">
 		</div>
 	</div>
 </body>
